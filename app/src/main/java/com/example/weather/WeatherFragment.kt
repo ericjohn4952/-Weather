@@ -43,7 +43,7 @@ class WeatherFragment : Fragment() { //這個事處理抓下來的資料用的�
     }
 
     private fun updateWeatherData(city: String?) {//這個thread將我們從remoteFetch抓下來的getJSON做判斷，如果資料正確將啟用renderWeather的這個方法
-    object : Thread() {
+        object : Thread() {
             override fun run() {
                 val json = getJSON(activity!!, city)
                 if (json == null) {//判斷有無資料
@@ -85,14 +85,14 @@ class WeatherFragment : Fragment() { //這個事處理抓下來的資料用的�
         val id = actualId / 100
         var icon = ""
 
-            when (id) {
-                2 -> icon = activity!!.getString(R.string.weather_thunder)
-                3 -> icon = activity!!.getString(R.string.weather_drizzle)
-                7 -> icon = activity!!.getString(R.string.weather_foggy)
-                8 -> icon = activity!!.getString(R.string.weather_cloudy)
-                6 -> icon = activity!!.getString(R.string.weather_snowy)
-                5 -> icon = activity!!.getString(R.string.weather_rainy)//這裡網站上有給對應的id名稱，哪個ID對應哪個圖案
-            }
+        when (id) {
+            2 -> icon = activity!!.getString(R.string.weather_thunder)
+            3 -> icon = activity!!.getString(R.string.weather_drizzle)
+            7 -> icon = activity!!.getString(R.string.weather_foggy)
+            8 -> icon = activity!!.getString(R.string.weather_cloudy)
+            6 -> icon = activity!!.getString(R.string.weather_snowy)
+            5 -> icon = activity!!.getString(R.string.weather_rainy)//這裡網站上有給對應的id名稱，哪個ID對應哪個圖案
+        }
 
         weatherIcon!!.text = icon
     }
